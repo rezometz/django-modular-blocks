@@ -1,7 +1,7 @@
 from django import template
 from django.template.base import (Node, InvalidTemplateLibrary, get_library)
 
-from .. import modules, ModuleApp
+from .. import modules, ModuleApp, BlockDoesNotExist
 
 
 register = template.Library()
@@ -25,6 +25,8 @@ class RenderModuleNode(Node):
         try:
             block_name = self.module_name.resolve(context)
             block = modules.get_block(block_name)
+        except BlockDoesNotExist:
+            return ''
         except template.VariableDoesNotExist:
             return ''
 

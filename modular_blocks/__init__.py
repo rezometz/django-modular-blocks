@@ -88,7 +88,7 @@ class ModuleLibrary(object):
                 'The module manager failed to load the block {name}.'
                 'Is it registered ?'.format(name=name)
             )
-            return None
+            raise BlockDoesNotExist(name)
 
     def get(self, module_name):
         try:
