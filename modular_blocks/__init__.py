@@ -37,6 +37,12 @@ class TemplateTagBlock(object):
         self.tag = tag
         self.kwargs = kwargs
 
+    def title(self):
+        try:
+            return self.block_title
+        except AttributeError:
+            return self.name.capitalize()
+
     def get_tag(self):
         path = self.get_relative_tag_path().split('.')
         module = __import__(self.get_full_path())
@@ -88,6 +94,9 @@ class ModuleLibrary(object):
                 'The module manager failed to load the module {module_name}.'
                 'Is it registered ?'.format(module_name=module_name)
             )
+
+    def get_non_used_blocks(self, *names):
+        return [block for name, block in self.blocks.items() if name not in names]
 
     def all(self):
         return self.modules
