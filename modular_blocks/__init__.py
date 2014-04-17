@@ -110,8 +110,10 @@ class ModuleLibrary(object):
 
     def autodiscover(self):
         for app in settings.INSTALLED_APPS:
-            if os.path.exists(app.replace('.', '/') + '/modular.py'):
+            try:
                 __import__(app + '.modular')
+            except ImportError:
+                pass
 
 
 modules = ModuleLibrary()
