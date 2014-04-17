@@ -1,8 +1,11 @@
 import os
 
+import logging
+
 from django.conf import settings
 from django.conf.urls import patterns
 
+logger = logging.getLogger(__name__)
 
 class ModuleDoesNotExist(Exception):
     pass
@@ -81,10 +84,11 @@ class ModuleLibrary(object):
         try:
             return self.blocks[name]
         except KeyError:
-            raise BlockDoesNotExist(
+            logger.error(
                 'The module manager failed to load the block {name}.'
                 'Is it registered ?'.format(name=name)
             )
+            return None
 
     def get(self, module_name):
         try:
