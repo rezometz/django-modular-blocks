@@ -1,0 +1,52 @@
+{% extends 'home/base.html' %}
+
+{% load i18n %}
+
+{% load bootstrap3 %}
+
+{% block content %}
+<div class="col-md-6">
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+            <h3 class="panel-title">{% trans 'Changing my sidebars' %}</h3>
+        </div>
+        <div class="panel-body">
+            {% blocktrans %}
+            You are currently modifying your sidebars. To do so, drag and
+            drop them where you want and do not forget to save your changes.
+            {% endblocktrans %}
+            <form action="{{ request.get_full_path }}" method="post" id="module-form">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% buttons %}
+                <button type="submit" class="btn btn-primary pull-right" id="module-save">
+                    {% trans 'Save' %}
+                </button>
+                {% endbuttons %}
+            </form>
+            <h3>{% trans 'Non used widgets' %}</h3>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="droppable-modules non-used-modules">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="droppable-modules non-used-modules">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% load staticfiles %}
+{% block style %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static 'modular_blocks/css/style.css' %}" />
+{% endblock %}
+
+{% block js %}
+{{ block.super }}
+<script type="text/javascript" src="{% static 'modular_blocks/js/modulable.js' %}"></script>
+{% endblock %}

@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 
 
 class ListTextField(models.TextField):
@@ -18,6 +19,11 @@ class ListTextField(models.TextField):
 
     def get_prep_value(self, value):
         return self.separator.join(value)
+
+    def value_to_string(self, obj):
+        value = self._get_val_from_obj(obj)
+        return self.get_db_prep_value(value)
+
 
 from south.modelsinspector import add_introspection_rules
 add_introspection_rules([
