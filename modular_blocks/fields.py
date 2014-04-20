@@ -34,4 +34,4 @@ add_introspection_rules([
             "separator": ["separator", {"default": ","}],
         },
     ),
-], ["^modulable_app\.fields\.ListTextField"])
+], ["^modular_blocks\.fields\.ListTextField"])
