@@ -15,7 +15,8 @@ class ListTextField(models.TextField):
         if isinstance(value, list):
             return value
 
-        return value.split(self.separator)
+        # We delete empty values
+        return [x for x in value.split(self.separator) if x != '']
 
     def get_prep_value(self, value):
         return self.separator.join(value)
