@@ -33,6 +33,10 @@ complete your main urls.py file with:
 
     urlpatterns += modules.get_patterns()
 
+If you use `i18n_patterns` :
+
+    urlpatterns += modules.get_i18n_patterns()
+
 Then, load any module that you want from a template using the render module
 tag from the modules tag library. In the following example we are using the 
 TwoModularColumnsMixin class to add two attributes (left and right sidebars)
