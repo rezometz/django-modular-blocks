@@ -11,15 +11,17 @@
             <h3 class="panel-title">{% trans 'Changing my sidebars' %}</h3>
         </div>
         <div class="panel-body">
+            <p>
             {% blocktrans %}
             You are currently modifying your sidebars. To do so, drag and
             drop them where you want and do not forget to save your changes.
             {% endblocktrans %}
+            </p>
             <form action="{{ request.get_full_path }}" method="post" id="module-form">
                 {% csrf_token %}
                 {% bootstrap_form form %}
                 {% buttons %}
-                <button type="submit" class="btn btn-primary pull-right" id="module-save">
+                <button type="submit" class="btn btn-primary btn-block" id="module-save">
                     {% trans 'Save' %}
                 </button>
                 {% endbuttons %}
