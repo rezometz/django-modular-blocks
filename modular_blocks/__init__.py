@@ -4,6 +4,7 @@ import logging
 
 from django.conf import settings
 from django.conf.urls import patterns
+from django.conf.urls.i18n import i18n_patterns
 
 logger = logging.getLogger(__name__)
 
@@ -107,6 +108,9 @@ class ModuleLibrary(object):
 
     def get_patterns(self):
         return patterns('', *self.urls)
+
+    def get_i18n_patterns(self):
+        return i18n_patterns('', *self.urls)
 
     def autodiscover(self):
         for app in settings.INSTALLED_APPS:
