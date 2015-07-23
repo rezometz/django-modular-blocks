@@ -1,2 +1,3 @@
 recursive-include modular_blocks/templates *
 recursive-include modular_blocks/static *
+recursive-include modular_blocks/locale *
