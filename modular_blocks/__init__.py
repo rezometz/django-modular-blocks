@@ -6,7 +6,9 @@ from django.conf import settings
 from django.conf.urls import patterns
 from django.conf.urls.i18n import i18n_patterns
 
+
 logger = logging.getLogger(__name__)
+
 
 class ModuleDoesNotExist(Exception):
     pass
@@ -101,7 +103,10 @@ class ModuleLibrary(object):
             )
 
     def get_non_used_blocks(self, *names):
-        return [block for name, block in self.blocks.items() if name not in names]
+        return [
+            block for name, block in self.blocks.items()
+            if name not in names
+        ]
 
     def all(self):
         return self.modules

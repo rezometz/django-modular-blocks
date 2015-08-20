@@ -26,13 +26,16 @@ class ListTextField(models.TextField):
         return self.get_prep_value(value)
 
 
-from south.modelsinspector import add_introspection_rules
-add_introspection_rules([
-    (
-        [ListTextField],
-        [],
-        {
-            "separator": ["separator", {"default": ","}],
-        },
-    ),
-], ["^modular_blocks\.fields\.ListTextField"])
+try:
+    from south.modelsinspector import add_introspection_rules
+    add_introspection_rules([
+        (
+            [ListTextField],
+            [],
+            {
+                "separator": ["separator", {"default": ","}],
+            },
+        ),
+    ], ["^modular_blocks\.fields\.ListTextField"])
+except ImportError:
+    pass
