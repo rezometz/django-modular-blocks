@@ -1,7 +1,11 @@
 from django import template
-from django.template.base import (Node, InvalidTemplateLibrary, get_library)
+from django.template.base import (
+    Node,
+    InvalidTemplateLibrary,
+    get_library,
+)
 
-from .. import modules, ModuleApp, BlockDoesNotExist
+from .. import modules, BlockDoesNotExist
 
 
 register = template.Library()
@@ -17,8 +21,8 @@ class RenderModuleNode(Node):
             lib = get_library(block.library)
             self.parser.add_library(lib)
         except InvalidTemplateLibrary as e:
-            raise TemplateSyntaxError(
-                "'%s' is not a valid tag library: %s" % (taglib, e)
+            raise template.TemplateSyntaxError(
+                "'%s' is not a valid tag library: %s" % (block.library, e)
             )
 
     def render(self, context):
