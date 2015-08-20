@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/rezometz/django-modular-blocks.svg?branch=master)](https://travis-ci.org/rezometz/django-modular-blocks)
+[![Code Climate](https://codeclimate.com/github/rezometz/django-modular-blocks/badges/gpa.svg)](https://codeclimate.com/github/rezometz/django-modular-blocks)
+[![Coverage Status](https://coveralls.io/repos/rezometz/django-modular-blocks/badge.svg?branch=master&service=github)](https://coveralls.io/github/rezometz/django-modular-blocks?branch=master)
 # Django Modular Blocks
 
 This app aims at providing a complete set of tools to ease
