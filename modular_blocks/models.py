@@ -9,7 +9,7 @@ class TwoModularColumnsMixin(models.Model):
         null=True,
     )
     sidebar_right = ListTextField(
-        lank=True,
+        blank=True,
         null=True,
     )
 
