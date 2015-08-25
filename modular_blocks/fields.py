@@ -11,9 +11,10 @@ class ListTextField(models.TextField):
         super(ListTextField, self).__init__(*args, **kwargs)
 
     def to_python(self, value):
+        if value is None:
+            return value
         if isinstance(value, list):
             return value
-
         # We delete empty values
         return [x for x in value.split(self.separator) if x != '']
 
