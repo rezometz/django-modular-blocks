@@ -19,7 +19,12 @@ class ListTextField(models.TextField):
         return [x for x in value.split(self.separator) if x != '']
 
     def get_prep_value(self, value):
-        return self.separator.join(value)
+        if value is None:
+            return value
+        if isinstance(value, list):
+            return self.separator.join(value)
+        else:
+            return self.separator.join([value])
 
     def value_to_string(self, obj):
         value = self._get_val_from_obj(obj)

@@ -13,8 +13,8 @@
         <div class="panel-body">
             <p>
             {% blocktrans %}
-            You are currently modifying your sidebars. To do so, drag and
-            drop them where you want and do not forget to save your changes.
+            You are currently modifying your sidebars and your upper bar. To do so, drag and
+            drop them where you want (including above this square) and do not forget to save your changes.
             {% endblocktrans %}
             </p>
             <form action="{{ request.get_full_path }}" method="post" id="module-form">
@@ -30,15 +30,20 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="droppable-modules non-used-modules">
-                    {% for block in non_used_blocks %}
-                    <div class="well module" data-module="{{ block.name }}">
-                        <h3>{{ block.title }}</h3>
-                    </div>
-                    {% endfor %}
+                        {% for block in non_used_blocks_1 %}
+                        <div class="well module" data-module="{{ block.name }}">
+                            <h3>{{ block.title }}</h3>
+                        </div>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="droppable-modules non-used-modules">
+                        {% for block in non_used_blocks_2 %}
+                        <div class="well module" data-module="{{ block.name }}">
+                            <h3>{{ block.title }}</h3>
+                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

@@ -10,8 +10,13 @@ class HiddenListInput(forms.HiddenInput):
 class ModularChangeForm(forms.ModelForm):
     class Meta:
         model = get_user_model()
-        fields = ('sidebar_left', 'sidebar_right', )
+        fields = (
+            'sidebar_left',
+            'sidebar_right',
+            'topbar',
+        )
         widgets = {
             'sidebar_left': HiddenListInput(),
             'sidebar_right': HiddenListInput(),
+            'topbar': HiddenListInput(),
         }

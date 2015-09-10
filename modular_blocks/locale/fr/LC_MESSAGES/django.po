@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-23 14:00+0200\n"
+"POT-Creation-Date: 2015-09-10 13:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,24 +22,25 @@ msgstr ""
 msgid "Changing my sidebars"
 msgstr "Modification des barres latérales"
 
-#: templates/modular_blocks/sidebars.html:14
+#: templates/modular_blocks/sidebars.html:15
 msgid ""
 "\n"
-"            You are currently modifying your sidebars. To do so, drag and\n"
-"            drop them where you want and do not forget to save your "
-"changes.\n"
+"            You are currently modifying your sidebars and your upper bar. To "
+"do so, drag and\n"
+"            drop them where you want (including above this square) and do "
+"not forget to save your changes.\n"
 "            "
 msgstr ""
 "\n"
-"           Vous êtes en train de modifier vos barres latérales.\n"
-"           Pour cela, tirez et déposez les widgets où vous voulez et "
-"           n’oubliez pas d’enregistrer vos changements.\n"
+"           Vous êtes en train de modifier vos barres latérales et votre barre supérieure.\n"
+"           Pour cela, tirez et déposez les widgets où vous voulez, y compris au-dessus de ce carré "
+"et            n’oubliez pas d’enregistrer vos changements.\n"
 "           "
 
-#: templates/modular_blocks/sidebars.html:23
+#: templates/modular_blocks/sidebars.html:25
 msgid "Save"
 msgstr "Enregistrer"
 
-#: templates/modular_blocks/sidebars.html:27
+#: templates/modular_blocks/sidebars.html:29
 msgid "Non used widgets"
 msgstr "Widgets non utilisés"

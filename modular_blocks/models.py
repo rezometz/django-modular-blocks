@@ -15,3 +15,13 @@ class TwoModularColumnsMixin(models.Model):
 
     class Meta:
         abstract = True
+
+
+class TopModularColumnMixin(models.Model):
+    topbar = ListTextField(
+        blank=True,
+        null=True,
+    )
+
+    class Meta:
+        abstract = True

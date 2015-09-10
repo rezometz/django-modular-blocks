@@ -19,7 +19,14 @@ class ModularChangeView(generic.UpdateView):
         user = self.request.user
 
         blocks_names = user.sidebar_left + user.sidebar_right
+        if isinstance(user.topbar, list):
+            blocks_names += user.topbar
+        elif user.topbar is not None:
+            blocks_names += [user.topbar]
 
-        cd['non_used_blocks'] = modules.get_non_used_blocks(*blocks_names)
+        nub = modules.get_non_used_blocks(*blocks_names)
+        mid = len(nub)/2
+        cd['non_used_blocks_1'] = nub[:mid]
+        cd['non_used_blocks_2'] = nub[mid:]
 
         return cd
