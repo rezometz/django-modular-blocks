@@ -1,11 +1,11 @@
-import logging
+# import logging
 
 from django.conf import settings
 from django.conf.urls import patterns
 from django.conf.urls.i18n import i18n_patterns
 
 
-logger = logging.getLogger(__name__)
+# logger = logging.getLogger(__name__)
 
 
 class ModuleDoesNotExist(Exception):
@@ -85,7 +85,8 @@ class ModuleLibrary(object):
         try:
             return self.blocks[name]
         except KeyError:
-            logger.error(
+            print(
+                '[modular_blocks] '
                 'The module manager failed to load the block {name}.'
                 'Is it registered ?'.format(name=name)
             )
