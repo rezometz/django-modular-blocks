@@ -37,22 +37,31 @@ class RenderModuleNode(Node):
         kwargs = ' '.join(
             '{!s}={!s}'.format(key, val) for key, val in block.kwargs.items()
         )
-        if block.personal:
-            string = '{{% load cache %}}{{% load {library} %}}\
-                {{% cache {cache_time} {slug} request.user.username %}}\
-                {{% {tag} {kwargs} %}}{{% endcache %}}'
-        else:
-            string = '{{% load cache %}}{{% load {library} %}}\
-                {{% cache {cache_time} {slug} %}}\
-                {{% {tag} {kwargs} %}}{{% endcache %}}'
-        tpl = template.Template(string.format(
-                library=block.library,
-                cache_time=block.cache_time,
-                slug=block.tag,
-                tag=block.tag,
-                kwargs=kwargs,
+        if block.cache_time > 0:
+            if block.personal:
+                string = '{{% load cache %}}{{% load {library} %}}\
+                    {{% cache {cache_time} {slug} request.user.username %}}\
+                    {{% {tag} {kwargs} %}}{{% endcache %}}'
+            else:
+                string = '{{% load cache %}}{{% load {library} %}}\
+                    {{% cache {cache_time} {slug} %}}\
+                    {{% {tag} {kwargs} %}}{{% endcache %}}'
+            tpl = template.Template(string.format(
+                    library=block.library,
+                    cache_time=block.cache_time,
+                    slug=block.tag,
+                    tag=block.tag,
+                    kwargs=kwargs,
+                )
             )
-        )
+        else:
+            string = '{{% load {library} %}}{{% {tag} {kwargs} %}}'
+            tpl = template.Template(string.format(
+                    library=block.library,
+                    tag=block.tag,
+                    kwargs=kwargs,
+                )
+            )
         return tpl.render(context)
 
 
