@@ -33,13 +33,21 @@ class TemplateTagBlock(object):
     name = None
     module = None
 
-    def __init__(self, name=None, cache_time=None, library=None, tag=None,
-                 kwargs={}):
+    def __init__(
+        self,
+        name=None,
+        cache_time=3,
+        library=None,
+        tag=None,
+        personal=True,
+        kwargs={}
+       ):
         self.name = name
         self.cache_time = cache_time
         self.library = library
         self.tag = tag
         self.kwargs = kwargs
+        self.personal = personal
 
     def title(self):
         try:
